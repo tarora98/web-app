@@ -1,0 +1,36 @@
+extends layout
+
+block content
+
+  style.
+  body
+    h5(style="{{postion:'center'}}") What&apos;s your name
+    |    
+    input#fname(type='text', name='Firstname', placeholder='First Name')
+    |      
+    br
+    | 
+    br
+    |    
+    input#lname(type='text', name='lastname', placeholder='Last Name')
+    |      
+    h5(style="{{postion:'center'}}")  And your Gender 
+    |
+    input#lname(type='text', name='gender', placeholder='Enter your Age...')
+    |      
+    button.btn.btn-outline-primary(type='button',name="male") Male
+    |      &nbsp; &nbsp;
+    button.btn.btn-outline-secondary(type='button', name="female") Female
+    |      
+    h5(style="{{postion:'center'}}")  What&apos;s your date of birth?
+    |      
+    h5(style="{{postion:'center'}}")  This can&apos;t be changed later
+    |      
+    input#birthday(type='date', name='birthday') 
+    |        
+    br
+    |          
+    br
+    |        
+    |           
+    button.btn.btn-outline-secondary(type='button') Next
