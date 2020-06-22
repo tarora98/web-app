@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
 	var lastname = req.body.lastname;
 	var Gender = req.body.Gender;
 	var Age = req.body.Age;
-	// var birthday = req.body.birthday;
+	var birthday = req.body.birthday;
 	// // Form Validator
 	req.checkBody('Firstname', 'Name field is required').notEmpty();
 	req.checkBody('lastname', 'Email field is required').notEmpty();
@@ -31,8 +31,8 @@ router.post('/', function (req, res, next) {
 		var info = new index({
 			Firstname: Firstname,
 			lastname: lastname,
-			// Age: Age,
-			// birthday: birthday
+			Age: Age,
+			birthday: birthday
 		});
 
 		details.createUser(info, function (err, user) {
@@ -42,8 +42,8 @@ router.post('/', function (req, res, next) {
 
 		req.flash('success', 'You enter the correct details');
 
-		// res.location('/next');
-		// res.redirect('/next');
+		res.location('/next');
+		res.redirect('/next');
 	}
 });
 
