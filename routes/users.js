@@ -6,7 +6,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
-var details =require('../models/details');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -25,6 +24,7 @@ router.post('/login',
   passport.authenticate('local',{failureRedirect:'/users/login', failureFlash: 'Invalid username or password'}),
   function(req, res) {
    req.flash('success', 'You are now logged in');
+   console.log("hello");
    res.redirect('/');
 });
 
@@ -106,48 +106,6 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
     res.redirect('/');
   }
 });
-
-router.post('/',function(req, res, next) {
-  var Firstname = req.body.Firstname;
-  var lastname = req.body.lastname;
-  var Gender = req.body.Gender;
-  var Age = req.body.Age;
-  var birthday = req.body.birthday;
-  // Form Validator
-  req.checkBody('Firstname','Name field is required').notEmpty();
-  req.checkBody('lastname','Email field is required').notEmpty();
-  req.checkBody('Age','Age required').notEmpty();
-  req.checkBody('birthday','DOB required').notEmpty();
-  req.checkBody('Gender','Password field is required').notEmpty();
-  // req.checkBody('password2','Passwords do not match').equals(req.body.password);
-
-  // Check Errors
-  var errors = req.validationErrors();
-
-  if(errors){
-  	res.render('details', {
-  		errors: errors
-  	});
-  } else{
-  	var detials = new User({
-      Firstname: Firstname,
-      lastname: lastname,
-      Age: Age,
-      birthday: birthday
-    });
-
-    User.createUser(detials, function(err, user){
-      if(err) throw err;
-      console.log(user);
-    });
-
-    req.flash('success', 'You enter the correct details');
-
-    res.location('/');
-    res.redirect('/');
-  }
-});
-
 
 
 

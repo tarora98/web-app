@@ -1,36 +1,25 @@
 extends layout
 
 block content
-
-  style.
-  body
-    h5(style="{{postion:'center'}}") What&apos;s your name
-    |    
-    input#fname(type='text', name='Firstname', placeholder='First Name')
-    |      
-    br
-    | 
-    br
-    |    
-    input#lname(type='text', name='lastname', placeholder='Last Name')
-    |      
-    h5(style="{{postion:'center'}}")  And your Gender 
-    |
-    input#lname(type='text', name='gender', placeholder='Enter your Age...')
-    |      
-    button.btn.btn-outline-primary(type='button',name="male") Male
-    |      &nbsp; &nbsp;
-    button.btn.btn-outline-secondary(type='button', name="female") Female
-    |      
-    h5(style="{{postion:'center'}}")  What&apos;s your date of birth?
-    |      
-    h5(style="{{postion:'center'}}")  This can&apos;t be changed later
-    |      
-    input#birthday(type='date', name='birthday') 
-    |        
-    br
-    |          
-    br
-    |        
-    |           
-    button.btn.btn-outline-secondary(type='button') Next
+  h5 What your name
+  form(method='post', action='/',enctype='multipart/form-data')
+   .form-group
+   label FirstName
+   input.form-control(type='text', name='Firstname', placeholder='First Name')
+   br
+   label LastName
+   .form-group
+   input.form-control(type='text', name='lastname', placeholder='Last Name')
+   h5 And your Gender
+   button.btn.btn-outline-primary.form-control(type='button', checked='') Male
+   &nbsp;
+   &nbsp;  
+   button.btn.btn-outline-secondary.form-control(type='button') Female
+   br     
+   h5  What&apos;s your date of birth?     
+   h8  This can&apos;t be be changed later     
+   br
+   input.form-control(type='date', name='birthday')        
+   br          
+   br            
+  input.form-control(type='submit', name='submit',value='next')

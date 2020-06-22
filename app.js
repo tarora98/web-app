@@ -18,7 +18,7 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+// var details=require('./routes/detail');
 var app = express();
 
 // view engine setup
